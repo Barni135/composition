@@ -1,0 +1,50 @@
+﻿<Window x:Class="composition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система управління складом" WindowState="Maximized" 
+        WindowStyle="None" Background="#F4F4F4" ResizeMode="NoResize">
+
+    <Grid>
+        <!-- Верхня панель навігації -->
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top" Background="#2D2D2D" Foreground="White">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Вихід" Click="Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Довідка">
+                    <MenuItem Header="Про програму" Click="About_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <!-- Основний вміст -->
+        <Grid Margin="40">
+            <!-- Виділення логотипу компанії -->
+            <TextBlock Text="TA-DA Corporation" FontSize="64" FontWeight="Bold" 
+                       Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"
+                       Margin="0,60,0,0">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#2D2D2D" Direction="320" ShadowDepth="8" Opacity="0.8"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- Градієнтний фон за логотипом -->
+            <Border Background="White" CornerRadius="15" Padding="20" Margin="0,150,0,0"
+                    HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" Height="400">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!-- Кнопки навігації -->
+                        <Button Content="Пошук товару" Width="300" Height="60" 
+                                Style="{StaticResource CustomButtonStyle}" Click="SearchProduct_Click" Margin="10"/>
+
+                        <Button Content="Перегляд залишків" Width="300" Height="60" 
+                                Style="{StaticResource CustomButtonStyle}" Click="ViewStocks_Click" Margin="10"/>
+
+                        <Button Content="Адміністрування" Width="300" Height="60" 
+                                Style="{StaticResource CustomButtonStyle}" Click="AdminPanel_Click" Margin="10"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

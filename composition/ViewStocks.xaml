@@ -1,0 +1,24 @@
+﻿<Window x:Class="composition.ViewStocks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Перегляд залишків" Width="800" Height="600" Background="#F4F4F4"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <!-- Заголовок -->
+        <TextBlock Text="Залишки товарів" FontSize="32" FontWeight="Bold" 
+                   Foreground="#2D2D2D" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+        <!-- Таблиця товарів -->
+        <DataGrid x:Name="StocksGrid" AutoGenerateColumns="False" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,70,0,0" 
+                  CanUserAddRows="False" HeadersVisibility="Column" RowHeight="40">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код товару" Binding="{Binding ProductCode}" Width="150"/>
+                <DataGridTextColumn Header="Назва товару" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Категорія" Binding="{Binding Category}" Width="200"/>
+                <DataGridTextColumn Header="Кількість" Binding="{Binding Quantity}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
